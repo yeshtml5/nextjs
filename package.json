@@ -1,0 +1,21 @@
+{
+  "name": "nextjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yeshtml5/nextjs",
+  "author": "yeshtml5 <yeshtml5@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "faker": "^4.1.0",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3",
+    "next": "^8.0.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
