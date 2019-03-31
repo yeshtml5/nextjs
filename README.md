@@ -16,4 +16,6 @@ NextJS framework &amp; react useful utils &amp; starter
 
 ## 본 git을 위해서 괜찮은 강좌들 모음
 
+- NextJS 공식 문서 <https://nextjs.org/docs/>
+- NextJS ver8.x 새로운점 <https://nextjs.org/blog/next-8/>
 - 양재동코드랩 <https://www.codelabs.kr/course/chapter/list?no=5>

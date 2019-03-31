@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "faker": "^4.1.0",
+    "firebase": "^5.9.2",
     "mobx": "^5.9.4",
     "mobx-react": "^5.4.3",
     "next": "^8.0.3",

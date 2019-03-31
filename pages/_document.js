@@ -13,11 +13,13 @@ class Doc extends Document {
           />
         </Head>
         <body>
+          <header>header</header>
           <main>
             <Main />
           </main>
-
-          <NextScript />
+          <footer>
+            <NextScript />
+          </footer>
         </body>
       </html>
     );
