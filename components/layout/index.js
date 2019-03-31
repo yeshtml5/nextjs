@@ -13,8 +13,11 @@ const Layout = ({ children }) => {
   return (
     <React.Fragment>
       <Header />
-      <main>{children}</main>
-      <Footer />
+      <main>
+        <div className="info">LOGIN</div>
+        <div className="content card">{children}</div>
+        <Footer />
+      </main>
     </React.Fragment>
   );
 };
