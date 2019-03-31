@@ -9,7 +9,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "deploy": "yarn run build && next export"
+    "export": "npm run build && next export"
   },
   "dependencies": {
     "faker": "^4.1.0",
