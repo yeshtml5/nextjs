@@ -10,10 +10,7 @@ export default class Test extends Component {
     const result=this.typeScriptFunc(1,2);
     console.log(result);
   }
-  // Typescript
-  typeScriptFunc(a:number,b:number):number{
-    return a+b;
-  }
+ 
   render() {
     return (
       <Layout>
