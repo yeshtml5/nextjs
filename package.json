@@ -12,7 +12,10 @@
     "export": "npm run build && next export"
   },
   "dependencies": {
+    "@types/next": "^8.0.3",
+    "@types/react": "^16.8.10",
     "@zeit/next-sass": "^1.0.1",
+    "@zeit/next-typescript": "^1.1.1",
     "faker": "^4.1.0",
     "firebase": "^5.9.2",
     "mobx": "^5.9.4",

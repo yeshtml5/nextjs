@@ -12,7 +12,6 @@ class Index extends Component {
           <div>컨텐츠내용</div>
         </Layout>
       </React.Fragment>
-    
     );
   }
 }

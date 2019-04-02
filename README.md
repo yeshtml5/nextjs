@@ -23,7 +23,7 @@ NextJS framework &amp; react useful utils &amp; starter
 - NextJS ver8.x 새로운점 <https://nextjs.org/blog/next-8/>
 - 양재동코드랩 <https://www.codelabs.kr/course/chapter/list?no=5>
 - 초기설정 <https://www.sanity.io/blog/tutorial-host-your-sanity-based-next-js-project-on-netlify>
-
+- <https://www.youtube.com/watch?v=kfmh2mMf3fs>
 ## 설정부분
 ```
 //package.json 에서

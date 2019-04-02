@@ -1,6 +1,11 @@
+// next.config.js
+
 module.exports = {
   crossOrigin: "anonymous"
 };
-// next.config.js
+
+
+
+const withTypescript = require('@zeit/next-typescript')
 const withSass = require('@zeit/next-sass')
-module.exports = withSass();
+module.exports = withTypescript(withSass())
