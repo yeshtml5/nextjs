@@ -1,10 +1,13 @@
 import type { NextPage } from "next";
+import Head from "next/head";
+import { Seo } from "../../../components/layout";
 
 const Test: NextPage = () => {
   return (
-    <div>
-      <h1>dd</h1>
-    </div>
+    <Head>
+      <Seo title={"TEST"} />
+      <div>dfsdf</div>
+    </Head>
   );
 };
 

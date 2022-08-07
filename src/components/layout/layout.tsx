@@ -1,3 +1,4 @@
+import { Nav } from "@components/layout";
 /**
  * @name Layout
  */
@@ -7,8 +8,11 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <main>
-      <div>{children}</div>
-    </main>
+    <>
+      <Nav />
+      <main>
+        <div>{children}</div>
+      </main>
+    </>
   );
 }
