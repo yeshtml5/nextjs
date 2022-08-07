@@ -1,4 +1,4 @@
-import { Nav } from "@components/layout";
+import { Nav, Header, Footer } from "components/layout";
 /**
  * @name Layout
  */
@@ -9,10 +9,12 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <>
+      <Header />
       <Nav />
       <main>
         <div>{children}</div>
       </main>
+      <Footer />
     </>
   );
 }

@@ -6,7 +6,7 @@ const Test: NextPage = () => {
   return (
     <Head>
       <Seo title={"TEST"} />
-      <div>dfsdf</div>
+      <div>sasasasa</div>
     </Head>
   );
 };
