@@ -7,12 +7,12 @@ import styled from "styled-components";
 
 const Home: NextPage = () => {
   return (
-    <Content>
+    <div>
       <Seo title={"HOME"} />
       <h1>
         Welcome to <a href="https://nextjs.org">Next.js!</a>
       </h1>
-    </Content>
+    </div>
   );
 };
 export default Home;

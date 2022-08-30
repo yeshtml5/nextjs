@@ -9,7 +9,10 @@ export default function Header() {
     <HeaderContent>
       <div className={`wrapper ${layout.space_between}`}>
         <div className="logo">YESHTML5</div>
-        <div style={{ padding: 20, backgroundColor: COLOR.GRAY4 }}>header</div>
+        {/* aside */}
+        <aside>
+          <div>menus</div>
+        </aside>
       </div>
     </HeaderContent>
   );
@@ -18,9 +21,14 @@ export default function Header() {
 const HeaderContent = styled.div`
   .wrapper {
     padding: 5px 20px;
-    background-color: ${COLOR.BLUE1};
+    background-color: ${COLOR.BLACK1};
   }
   .logo {
+    color: ${COLOR.WHITE};
     font-size: 20px;
+  }
+  aside {
+    color: ${COLOR.WHITE};
+    font-size: 14px;
   }
 `;
