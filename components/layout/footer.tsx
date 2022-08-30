@@ -1,4 +1,3 @@
-import { Nav } from "components/layout";
 /**
  * @name Layout
  */

@@ -1,19 +1,20 @@
-import { Nav, Header, Footer } from "components/layout";
 /**
  * @name Layout
  */
+import { Nav, Header, Footer } from "components/layout";
+import { layout } from "styles";
+
 type Props = {
+  props: any;
   children: React.ReactNode;
 };
 
-export default function Layout({ children }: Props) {
+export default function Layout({ children, ...props }: Props) {
   return (
     <>
       <Header />
       <Nav />
-      <main>
-        <div>{children}</div>
-      </main>
+      <main className={layout.container}>{children}</main>
       <Footer />
     </>
   );

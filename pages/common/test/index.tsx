@@ -11,3 +11,7 @@ const Test: NextPage = () => {
 };
 
 export default Test;
+
+Test.getInitialProps = () => {
+  return { title: "TES111T" };
+};
