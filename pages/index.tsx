@@ -1,21 +1,22 @@
+/**
+ *@nmae HOME
+ */
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import { Nav, Seo } from "components/layout";
-import styles from "styles/Home.module.css";
+import styled from "styled-components";
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <Content>
       <Seo title={"HOME"} />
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-      </main>
-    </div>
+      <h1>
+        Welcome to <a href="https://nextjs.org">Next.js!</a>
+      </h1>
+    </Content>
   );
 };
-
 export default Home;
+//*--------------------------------------------------*
+const Content = styled.div`
+  /* background-color: #ff0000; */
+`;
