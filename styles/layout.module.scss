@@ -2,14 +2,26 @@
 // 레이아웃
 .container_wrapper {
   display: flex;
-  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 .container_nav {
-  width: 150px;
-  border-right: 1px solid #000;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  min-height: 100vh;
+  max-height: 100vh;
+  color: #ffffff;
+  background-color: #151529;
 }
 .container {
-  padding: 0;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
 }
 .nav {
   background-color: #000;

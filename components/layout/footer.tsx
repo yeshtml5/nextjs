@@ -30,14 +30,16 @@ export default function Footer() {
 const Content = styled.footer`
   .wrapper {
     border-top: 1px solid ${COLOR.GRAY4};
+    display: block;
     padding: 5px 20px;
-    background-color: ${COLOR.WHITE};
   }
   .copyright {
-    font-size: 12px;
+    font-size: 10px;
+    color: ${COLOR.GRAY1};
   }
   a {
     margin-left: 5px;
     text-decoration: underline;
+    color: ${COLOR.GRAY1};
   }
 `;

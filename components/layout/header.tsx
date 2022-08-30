@@ -20,15 +20,15 @@ export default function Header() {
 //*--------------------------------------------------*
 const HeaderContent = styled.div`
   .wrapper {
-    padding: 5px 20px;
-    background-color: ${COLOR.BLACK1};
+    padding: 0 20px;
+    height: 50px;
+    border-bottom: 1px solid ${COLOR.GRAY2};
+    background-color: ${COLOR.WHITE};
   }
   .logo {
-    color: ${COLOR.WHITE};
     font-size: 20px;
   }
   aside {
-    color: ${COLOR.WHITE};
     font-size: 14px;
   }
 `;
