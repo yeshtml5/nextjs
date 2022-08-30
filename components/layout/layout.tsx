@@ -12,9 +12,14 @@ type Props = {
 export default function Layout({ children, ...props }: Props) {
   return (
     <>
+      {/* {debug(props)} */}
       <Header />
-      <Nav />
-      <main className={layout.container}>{children}</main>
+      <div className={layout.container_wrapper}>
+        <nav className={layout.container_nav}>
+          <Nav />
+        </nav>
+        <main className={layout.container}>{children}</main>
+      </div>
       <Footer />
     </>
   );

@@ -1,5 +1,13 @@
 //*--------------------------------------------------*
 // 레이아웃
+.container_wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.container_nav {
+  width: 150px;
+  border-right: 1px solid #000;
+}
 .container {
   padding: 0;
 }
