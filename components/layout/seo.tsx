@@ -1,5 +1,8 @@
+/**
+ * @name Seo
+ * @description SEO 컴포넌트
+ */
 import Head from "next/head";
-
 type Props = {
   title?: string;
 };
