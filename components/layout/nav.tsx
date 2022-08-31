@@ -30,6 +30,9 @@ export default function NavBar() {
           <Link href="/common/test">
             <a>Test</a>
           </Link>
+          <Link href="/404">
+            <a>404</a>
+          </Link>
         </div>
       </div>
     </GNB>

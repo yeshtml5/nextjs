@@ -23,7 +23,7 @@ const API = "https://jsonplaceholder.typicode.com/photos";
 
 export default function Guide({ data }: Props) {
   const router = useRouter();
-  const onClick = (item) => {
+  const onClick = (item: any) => {
     router.push(
       {
         pathname: `/photos/${item?.id}`,

@@ -11,14 +11,14 @@ import { useRouter } from "next/router";
 
 export default function PhotoDetail() {
   const router = useRouter();
-  const { url, title, thumbnailUrl } = router.query;
+  const { url, title, thumbnailUrl } = router?.query;
   //*--------------------------------------------------*
   useEffect(() => {}, []);
   return (
     <Content>
       <Seo title="PhotoDetail" />
       <h1>상세페이지</h1>
-      <div className="wrapper">{JSON.stringify(router.query, null, 1)}</div>
+      <div className="wrapper">{JSON.stringify(router, null, 1)}</div>
       <a href={`${url} `}>
         <h2>{title}</h2>
         <img src={`${thumbnailUrl}`} />
