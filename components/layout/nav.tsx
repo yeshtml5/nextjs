@@ -15,11 +15,23 @@ export default function NavBar() {
           <Link href="/">
             <a>Home</a>
           </Link>
+          <Link href="/_guide">
+            <a>Guide</a>
+          </Link>
+          <Link href="/photos">
+            <a>photos</a>
+          </Link>
+          <Link href="/photos/1">
+            <a>photos/[id]</a>
+          </Link>
           <Link href="/post/1">
             <a>POST</a>
           </Link>
           <Link href="/common/test">
             <a>Test</a>
+          </Link>
+          <Link href="/404">
+            <a>404</a>
           </Link>
         </div>
       </div>
