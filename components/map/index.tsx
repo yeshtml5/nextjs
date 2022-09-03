@@ -6,29 +6,30 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Seo } from "@components/layout";
 import { debug } from "console";
-import Image from "next/image";
-import Head from "next/head";
 import Script from "next/script";
-import { Suspense } from "react";
-import dynamic from "next/dynamic";
-
-const DynamicHeader = dynamic(() => import("@components/map"), {
-  suspense: true,
-});
 
 export default function Map() {
   //*--------------------------------------------------*
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    window.kakao.maps.load(() => {
+      let container = document.getElementById("map");
+      let options = {
+        center: new window.kakao.maps.LatLng(33.450701, 126.570667),
+        level: 3,
+      };
+      let map = new window.kakao.maps.Map(container, options);
+      let markerPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
+    });
+  }, []);
 
   return (
     <Content>
-      <Seo title="Guide" />
-      <h1>Guide</h1>
-      <Suspense>
-        <DynamicHeader fallback={"1"} />
-      </Suspense>
-      <div className="wrapper">{/* {JSON.stringify(data)} */}</div>
+      <Script
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c97e8aaa10542d168be1260e03d063d&libraries=services,clusterer&autoload=false"
+        strategy="beforeInteractive"
+      />
+      <div id="map" style={{ width: "500px", height: "400px" }}></div>
     </Content>
   );
 }
