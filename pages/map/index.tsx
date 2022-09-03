@@ -11,12 +11,9 @@ import Head from "next/head";
 import Script from "next/script";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+import Map from "@components/map";
 
-const DynamicHeader = dynamic(() => import("@components/map"), {
-  suspense: true,
-});
-
-export default function Map() {
+export default function Maps() {
   //*--------------------------------------------------*
 
   useEffect(() => {}, []);
@@ -24,11 +21,9 @@ export default function Map() {
   return (
     <Content>
       <Seo title="Guide" />
-      <h1>Guide</h1>
-      <Suspense>
-        <DynamicHeader fallback={"1"} />
-      </Suspense>
-      <div className="wrapper">{/* {JSON.stringify(data)} */}</div>
+      <h1>Guide1</h1>
+      <Map latitude={33.450701} longitude={126.570667} />
+      <div className="wrapper">{/* {JSON.33.450701, 126.570667(data)} */}</div>
     </Content>
   );
 }
