@@ -1,109 +1,114 @@
+/**
+ * @name useKakaoMap
+ */
+
 import styled from "styled-components";
 import { useEffect } from "react";
 
-interface MapProps {
-  latitude: number;
-  longitude: number;
-}
 declare global {
   interface Window {
     kakao: any;
   }
 }
-function Map({ latitude, longitude }: MapProps) {
+type Props = {
+  latitude: number;
+  longitude: number;
+};
+
+let kakaoMaps: any;
+let kakaoContainer: any;
+
+function Map({ latitude, longitude }: Props) {
+  // 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
+  function setMapType(maptype) {
+    var roadmapControl = document.getElementById("btnRoadmap");
+    var skyviewControl = document.getElementById("btnSkyview");
+    if (maptype === "roadmap") {
+      kakaoContainer.setMapTypeId(kakaoMaps.MapTypeId.ROADMAP);
+      roadmapControl.className = "selected_btn";
+      skyviewControl.className = "btn";
+    } else {
+      kakaoContainer.setMapTypeId(kakaoMaps.MapTypeId.HYBRID);
+      skyviewControl.className = "selected_btn";
+      roadmapControl.className = "btn";
+    }
+  }
+
+  // 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+  function zoomIn() {
+    kakaoContainer.setLevel(kakaoContainer.getLevel() - 1);
+  }
+
+  // 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+  function zoomOut() {
+    kakaoContainer.setLevel(kakaoContainer.getLevel() + 1);
+  }
+
+  const onLoadKakaoMap = () => {
+    window.kakao.maps.load(() => {
+      kakaoMaps = window.kakao.maps;
+      const container = document.getElementById("map");
+      const options = {
+        center: new kakaoMaps.LatLng(latitude, longitude),
+        level: 3, // 지도의 확대 레벨
+      };
+      kakaoContainer = new kakaoMaps.Map(container, options);
+      const markerPosition = new kakaoMaps.LatLng(latitude, longitude);
+      const marker = new kakaoMaps.Marker({
+        position: markerPosition,
+      });
+      marker.setMap(kakaoContainer);
+    });
+  };
+
   useEffect(() => {
     const mapScript = document.createElement("script");
-
     mapScript.async = true;
     mapScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${"9c97e8aaa10542d168be1260e03d063d"}&autoload=false`;
-
     document.head.appendChild(mapScript);
-
-    const onLoadKakaoMap = () => {
-      window.kakao.maps.load(() => {
-        const container = document.getElementById("map");
-        const options = {
-          center: new window.kakao.maps.LatLng(latitude, longitude),
-        };
-        const map = new window.kakao.maps.Map(container, options);
-        const markerPosition = new window.kakao.maps.LatLng(
-          latitude,
-          longitude
-        );
-        const marker = new window.kakao.maps.Marker({
-          position: markerPosition,
-        });
-        marker.setMap(map);
-      });
-    };
     mapScript.addEventListener("load", onLoadKakaoMap);
 
     return () => mapScript.removeEventListener("load", onLoadKakaoMap);
   }, [latitude, longitude]);
 
-  return <MapContainer id="map" />;
+  return (
+    <div>
+      <MapContainer id="map" />
+      <div className="custom_zoomcontrol radius_border">
+        <span onClick={() => zoomIn()}>
+          <img
+            src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png"
+            alt="확대"
+          />
+        </span>
+        <span onClick={() => zoomOut()}>
+          <img
+            src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png"
+            alt="축소"
+          />
+        </span>
+      </div>
+      <button
+        onClick={() => {
+          if (!kakaoMaps) return;
+          var moveLatLon = new kakaoMaps.LatLng(33.05058, 126.2764942);
+          kakaoContainer.panTo(moveLatLon);
+        }}
+      >
+        test
+      </button>
+    </div>
+  );
 }
 
 const MapContainer = styled.div`
-  aspect-ratio: 320 / 220;
+  // aspect-ratio: 1;
+  width: 100%;
+  min-height: 300px;
 `;
 
 export default Map;
-// /**
-//  * @name Guide
-//  * @description 가이드페이지
-//  */
-// import { useEffect, useState } from "react";
-// import styled from "styled-components";
-// import { Seo } from "@components/layout";
-// import { debug } from "console";
-// import Script from "next/script";
-
-// declare global {
-//   interface Window {
-//     kakao: any;
-//   }
-// }
-// export default function Map() {
-//   //*--------------------------------------------------*
-//   useEffect(() => {
-//     window.kakao.maps.load(() => {
-//       let container = document.getElementById("map");
-//       let options = {
-//         center: new window.kakao.maps.LatLng(33.450701, 126.570667),
-//         level: 3,
-//       };
-//       let map = new window.kakao.maps.Map(container, options);
-//       let markerPosition = new window.kakao.maps.LatLng(33.450701, 126.570667);
-//     });
-//   }, []);
-
-//   return (
-//     <Content>
-//       <Script
-//         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9c97e8aaa10542d168be1260e03d063d&libraries=services,clusterer&autoload=false"
-//         strategy="beforeInteractive"
-//       />
-//       <div id="map" style={{ width: "500px", height: "400px" }}></div>
-//       참고페이지
-//       https://velog.io/@nyanji00/react-%EC%B9%B4%EC%B9%B4%EC%98%A4%EB%A7%B5-API-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EC%A7%80%EB%8F%84-%EB%9D%84%EC%9A%B0%EA%B8%B0-Next.js-Typescript
-//     </Content>
-//   );
-// }
-
-// //*--------------------------------------------------*
-// const Content = styled.div`
-//   padding: 0 20px;
-//   /* wrapper */
-//   .wrapper {
-//   }
-//   .item {
-//     display: flex;
-//     align-items: center;
-//     padding: 10px 0;
-//     border-bottom: 1px solid #111;
-//     img {
-//       margin-right: 10px;
-//     }
-//   }
-// `;
+/************
+ 카카오지도
+ https://apis.map.kakao.com/web/sample/basicMap/
+  */
