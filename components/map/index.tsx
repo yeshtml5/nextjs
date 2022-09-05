@@ -4,6 +4,7 @@
 
 import styled from "styled-components";
 import { useEffect } from "react";
+import { debug } from "lib/util/log";
 
 declare global {
   interface Window {
